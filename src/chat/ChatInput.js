@@ -47,9 +47,7 @@ class ChatInput extends React.Component {
                         })  
                     })
                 })
-                
             })
-            
         })
 
         this.setState({
