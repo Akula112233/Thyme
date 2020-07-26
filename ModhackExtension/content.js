@@ -8,6 +8,15 @@ document.body.appendChild(overlay);
 
 var overlay_button = document.createElement("div");
 overlay_button.id = "overlay_button";
+
+var overlay_button_image = document.createElement("img");
+overlay_button_image.src = "https://cdn.discordapp.com/attachments/721912029899784214/736844796953493564/icongood.png";
+overlay_button_image.height = "50";
+overlay_button_image.width = "50";
+overlay_button_image.style = "border-radius: 25px;";
+
+overlay_button.appendChild(overlay_button_image);
+
 document.body.appendChild(overlay_button);
 
 var overlay_open = false;
@@ -28,9 +37,8 @@ function overlay_click(overlay_open) {
 
 
 chrome.runtime.onMessage.addListener(function(request, sender) {
-	var globals = document.createElement("script");
-	globals.type = "text/javascript";
-	globals.innerHTML = "var user_info = " + request.user_info + "var token = \"" + request.token + "\";";
-
-	document.head.appendChild(globals);
+	request.user_info = JSON.parse(request.user_info);
+	request.user_info.token = request.token;
+	
+	overlay.contentWindow.postMessage(request.user_info, '*');
 });
