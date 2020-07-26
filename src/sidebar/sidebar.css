@@ -1,0 +1,6 @@
+.sidebar {
+    width: 15%;
+    background-color: rgba(28, 55, 91, 0.8);
+    border-radius: 2vh 2vh 2vh 2vh;
+    box-sizing: border-box;
+}
