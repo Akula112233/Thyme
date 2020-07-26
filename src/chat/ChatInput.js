@@ -26,19 +26,20 @@ class ChatInput extends React.Component {
 
     handleClick = () => {
         let text = this.state.text
+        let author = this.props.author
         if (this.state.text == "") {
             return false
         }
         this.setState({
             text: ""
         })
-        this.socket.emit('sendMessage', text)
+        this.socket.emit('sendMessage', text, author)
     }
 
     render() {
         return (
             <div id= "chat-input-container">
-                <input placeholder= "Type your message..." value={this.state.text} onChange= {this.handleChange} id= "chat-input">
+                <input autoComplete="off" placeholder= "Type your message..." value={this.state.text} onChange= {this.handleChange} id= "chat-input">
                 </input>
                 <button onClick={this.handleClick} id= "chat-send">
                     <ArrowUpwardIcon id="send-icon">

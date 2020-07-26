@@ -16,7 +16,7 @@ const io = socketIo(server)
 io.on('connection', (socket) => {
     console.log("New Client Connected")
     socket.on('sendMessage', (message, author) => {
-        io.emit('chat message', {message, author: "Bill Gates"})
+        io.emit('chat message', {message, author})
     })
 
 })
