@@ -15,11 +15,17 @@ class Chat extends React.Component {
         }
     }
 
+    getCourseSelect = (num) => {
+        this.setState({
+            selected: num
+        })
+    }
+
     render() {
         let {courseid, authorInstance, channelList, selected} = this.state
         return (
             <div id="chat-container">
-                <Courses></Courses>
+                <Courses click={(num) => this.getCourseSelect(num)}></Courses>
                 <ChatBody course= {courseid} channel= {channelList[selected]} author={authorInstance}></ChatBody>
                 <ChatInput course={courseid} channelChoice={0} channelList= {channelList} author={authorInstance}></ChatInput>
             </div>

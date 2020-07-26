@@ -4,9 +4,10 @@ import ChatItem from './ChatItem'
 import socketIOClient from 'socket.io-client'
 import uniqid from 'uniqid'
 import {db} from '../firebase/firebase'
+import { Scrollbars } from 'react-custom-scrollbars'
 
 
-const ENDPOINT = 'localhost:8000/'
+const ENDPOINT = 'https://ec2-52-91-127-119.compute-1.amazonaws.com:8000/'
 
 class ChatBody extends React.Component {
     constructor(props) {
@@ -79,7 +80,11 @@ class ChatBody extends React.Component {
     render() {
         return (
             <div id="chat-body">
-                {this.state.list}
+                <Scrollbars>
+                    <div style={{position: "relative", marginRight: "15px"}}>
+                        {this.state.list}
+                    </div>
+                </Scrollbars>
             </div>
         )
     }
