@@ -6,7 +6,6 @@ import uniqid from 'uniqid'
 import {db} from '../firebase/firebase'
 import { Scrollbars } from 'react-custom-scrollbars'
 
-
 const ENDPOINT = 'https://ec2-52-91-127-119.compute-1.amazonaws.com:8000/'
 
 class ChatBody extends React.Component {
@@ -15,12 +14,14 @@ class ChatBody extends React.Component {
         this.messageList = []
         this.state = {
             list : [],
-            prevAuthor: "undefined"
+            prevAuthor: "undefined",
+            course: this.props.course,
+            channel: this.props.channel
         }
     }
 
     componentDidUpdate(prevProps) {
-        if(prevProps.channel == this.props.channel) {
+        if(prevProps.course == this.props.course) {
             return false
         }
 
@@ -36,6 +37,7 @@ class ChatBody extends React.Component {
                 // grabs the channels from the course course
                 db.collection("courses").doc(course.id).collection("channels").where("channelid", "==", this.props.channel).get().then((channelList) => {
                     channelList.forEach(channel => {
+                        console.log(channel.data())
                         db.collection("courses").doc(course.id).collection("channels").doc(channel.id).collection("messages").get().then(messages => {
                             messages.forEach(doc => {
                                 if (this.state.prevAuthor == doc.data().author) {

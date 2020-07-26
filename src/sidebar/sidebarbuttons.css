@@ -1,0 +1,38 @@
+.sidebarbuttons {
+    width: 50px;
+    height: 50px;
+    z-index: 500;
+    cursor: pointer;
+    /*background: lightblue;*/
+    border-radius: 50%;
+}
+
+.courseIconImage {
+    /*max-width: 100%;*/
+    /*max-height: 100%;*/
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    display: block;
+    border-radius: 50%;
+}
+
+#fillerButtonsSidebar{
+    height: 70px;
+}
+
+.selected {
+    width: 60px;
+    height: 60px;
+    background: rgba(191, 196, 213, 0.5);
+    mix-blend-mode: lighten;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.constant {
+    margin-top: 20px;
+}
