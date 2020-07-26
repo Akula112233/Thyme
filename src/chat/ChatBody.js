@@ -12,16 +12,24 @@ class ChatBody extends React.Component {
         super(props)
         this.messageList = []
         this.state = {
-            list : []
+            list : [],
+            prevAuthor: "undefined"
         }
     }
 
     componentDidMount() {
         const socket = socketIOClient(ENDPOINT)
         socket.on('chat message', (msg) => {
-            this.messageList.push(<ChatItem key={uniqid()} author="Bill Gates" content={msg}></ChatItem>)
+            if (this.state.prevAuthor == msg.author) {
+                this.messageList.push(<ChatItem marginTop="0" display="none" key={uniqid()} author="Bill Gates" content={msg.message}></ChatItem>)
+            } else {
+                this.messageList.push(<ChatItem marginTop="" display="" key={uniqid()} author="Bill Gates" content={msg.message}></ChatItem>)
+            }
             this.setState({
-                list: this.messageList
+                list: this.messageList,
+                prevAuthor: msg.author
+            }, () => {
+                console.log(msg)
             })
         })
     }
