@@ -39,6 +39,7 @@ function overlay_click(overlay_open) {
 chrome.runtime.onMessage.addListener(function(request, sender) {
 	request.user_info = JSON.parse(request.user_info);
 	request.user_info.token = request.token;
+	request.user_info.courses = JSON.parse(request.course_info).courses;
 	
 	overlay.contentWindow.postMessage(request.user_info, '*');
 });

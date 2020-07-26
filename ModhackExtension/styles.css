@@ -1,10 +1,10 @@
 @keyframes overlay_open {
 	0% {display: none; width: 48px; height: 48px;}
-	100% {display: block; width: calc(50% - 530px); height: 650px;}
+	100% {display: block; width: calc(50% - 548px); calc(100% - 112px);}
 }
 
 @keyframes overlay_close {
-	0% {display: block; width: calc(50% - 530px); height: 650px;}
+	0% {display: block; width: calc(50% - 548px); calc(100% - 112px);}
 	100% {display: none; width: 48px; height: 48px;}
 }
 
@@ -13,11 +13,11 @@
 	border-radius: 25px;
 	border-color: #d9d9d9;
 	display: none;
-	width: calc(50% - 420px);
-	height: 650px;
+	width: calc(50% - 548px);
+	height: calc(100% - 112px);
 	animation-timing-function: ease-out;
-	top: 80px;
-	right: 15px;
+	top: 88px;
+	right: 24px;
 	z-index: 51;
 	border-width: 1px;
 	border-style: solid;
@@ -29,8 +29,8 @@
 	background: white;
 	width: 50px;
 	height: 50px;
-	top: 80px;
-	right: 15px;
+	top: 88px;
+	right: 24px;
 	z-index: 52;
 	border-radius: 50%;
 	border-color: #d9d9d9;
