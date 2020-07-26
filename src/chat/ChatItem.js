@@ -3,12 +3,12 @@ import './chat.css'
 
 function ChatItem(props) {
     return (
-        <div className= "chat-item">
-            <div className= "profile-picture">
-            </div>
+        <div style={{marginTop: props.marginBot}}className= "chat-item">
             <div className= "chat-item-content-container">
-                <p className= "chat-item-author">{props.author}</p>
-                <p className= "chat-item-content">{props.content}</p>
+                <p style={{display: props.display}} className= "chat-item-author">{props.author.toUpperCase()}</p>
+                <div className= "chat-background">
+                    <p className= "chat-item-content">{props.content}</p>
+                </div>
             </div>
         </div>
     )
