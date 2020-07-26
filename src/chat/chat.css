@@ -19,6 +19,15 @@
     box-sizing: border-box;
 }
 
+#drawing-style {
+    height: 80vh;
+    width: 80vw;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+}
+
+
+
 
 #chat-input-container {
     box-sizing: border-box;
