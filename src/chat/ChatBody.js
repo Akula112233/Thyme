@@ -12,16 +12,32 @@ class ChatBody extends React.Component {
         super(props)
         this.messageList = []
         this.state = {
-            list : []
+            list : [],
+            prevAuthor: "undefined"
         }
     }
 
     componentDidMount() {
         const socket = socketIOClient(ENDPOINT)
         socket.on('chat message', (msg) => {
-            this.messageList.push(<ChatItem key={uniqid()} author="Bill Gates" content={msg}></ChatItem>)
+            if (this.state.prevAuthor == msg.author) {
+                if (this.props.author == msg.author) {
+                    this.messageList.push(<ChatItem type={2} marginTop="5px" display="none" key={uniqid()} author={msg.author} content={msg.message}></ChatItem>)
+                } else {
+                    this.messageList.push(<ChatItem type={1} marginTop="5px" display="none" key={uniqid()} author={msg.author} content={msg.message}></ChatItem>)
+                }
+            } else {
+                if (this.props.author == msg.author) {
+                    this.messageList.push(<ChatItem type={2} marginTop="7.5px" display="block" key={uniqid()} author={msg.author} content={msg.message}></ChatItem>)
+                } else {
+                    this.messageList.push(<ChatItem type={1} marginTop="7.5px" display="block" key={uniqid()} author={msg.author} content={msg.message}></ChatItem>)
+                }
+            }
             this.setState({
-                list: this.messageList
+                list: this.messageList,
+                prevAuthor: msg.author
+            }, () => {
+                console.log(msg)
             })
         })
     }
