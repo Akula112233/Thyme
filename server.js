@@ -9,7 +9,7 @@ const options = {
 	cert: fs.readFileSync("/home/ec2-user/Thyme/cert.pem")
 }
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8000
 
 const app = express()
 app.use(index)
