@@ -3,15 +3,10 @@ import './chat.css'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
 import { styled } from '@material-ui/core/styles';
-
-
 import socketIOClient from 'socket.io-client'
-import { render } from '@testing-library/react';
-
 
 const ENDPOINT = 'https://ec2-52-91-127-119.compute-1.amazonaws.com:8000/'
 const socket = socketIOClient(ENDPOINT)
-
 const SelectBlock = styled(Select)({
     height: '35px',
     backgroundColor: '#1C375B',
@@ -29,7 +24,10 @@ class Courses extends React.Component {
         super(props)
         this.state = {
             clientCount: 0,
-            selectedOption: 0
+            selectedOption: {
+                value: 0,
+                type: 0
+            }
         }
     }
        
@@ -56,10 +54,9 @@ class Courses extends React.Component {
                     </h1>
                     <p className= "people-count"><span>69 Members</span> • <span>{this.state.clientCount / 3} Online</span></p>
                 </div>
-                <SelectBlock disableUnderline value= {this.state.selectedOption} onChange= {(e) => this.handleSelect(e)}>
-                    <MenuItem value= {0}># General</MenuItem>
-                    <MenuItem value= {1}># Study Help</MenuItem>
-                    <MenuItem value= {2}># Something Else</MenuItem>
+                <SelectBlock value= {this.state.selectedOption} onChange= {(e) => this.handleSelect(e)} disableUnderline>
+                    <MenuItem value= {{value: 0, type: 0}}># General</MenuItem>
+                    <MenuItem value= {{value: 1, type: 0}}># Study Help</MenuItem>
                 </SelectBlock>
                 
             </div>

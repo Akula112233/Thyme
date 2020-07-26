@@ -36,6 +36,7 @@ class ChatInput extends React.Component {
             snapshot.forEach(doc => {
                 db.collection("courses").doc(doc.id).collection("channels").where("channelid", "==", this.props.channelList[this.props.channelChoice]).get().then(channels => {
                     channels.forEach(channel => {
+                        console.log(channel.id)
                         let nextNum = channel.data().nummessages
                         db.collection("courses").doc(doc.id).collection("channels").doc(channel.id).collection("messages").doc(nextNum + "").set({
                             author,
