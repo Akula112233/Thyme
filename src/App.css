@@ -1,0 +1,9 @@
+.App {
+    height: 500px;
+    width: 400px;
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(111, 129, 141, 0.3);
+    border-radius: 2vh;
+}
