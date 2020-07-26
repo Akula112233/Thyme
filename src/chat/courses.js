@@ -59,7 +59,6 @@ class Courses extends React.Component {
                 <SelectBlock disableUnderline value= {this.state.selectedOption} onChange= {(e) => this.handleSelect(e)}>
                     <MenuItem value= {0}># General</MenuItem>
                     <MenuItem value= {1}># Study Help</MenuItem>
-                    <MenuItem value= {2}># Something Else</MenuItem>
                 </SelectBlock>
                 
             </div>

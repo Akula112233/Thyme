@@ -8,9 +8,9 @@ class Chat extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            courseid: "test123",
+            courseid: "MTQ3ODcyMzU4NTFa",
             authorInstance: "Bob Ross",
-            channelList: ["test111", "newid"],
+            channelList: [0, 1],
             selected: 0
         }
     }
@@ -22,12 +22,13 @@ class Chat extends React.Component {
     }
 
     render() {
-        let {courseid, authorInstance, channelList, selected} = this.state
+        let {courseid, authorInstance, channelList} = this.state
+        console.log(channelList[this.state.selected])
         return (
             <div id="chat-container">
                 <Courses click={(num) => this.getCourseSelect(num)}></Courses>
-                <ChatBody course= {courseid} channel= {channelList[selected]} author={authorInstance}></ChatBody>
-                <ChatInput course={courseid} channelChoice={0} channelList= {channelList} author={authorInstance}></ChatInput>
+                <ChatBody course= {this.state.courseid} channel= {channelList[this.state.selected]} author={authorInstance}></ChatBody>
+                <ChatInput course={courseid} channelChoice={this.state.selected} channelList= {channelList} author={authorInstance}></ChatInput>
             </div>
         )
     }
