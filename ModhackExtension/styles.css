@@ -8,6 +8,26 @@
 	100% {display: none; width: 48px; height: 48px;}
 }
 
+@keyframes overlay_button_open {
+	0% {background-color: white; border-width: 1px;}
+	100% {background-color: white; border-width: 1px;}
+}
+
+@keyframes overlay_button_close {
+	0% {background-color: white; border-width: 1px;}
+	100% {background-color: white; border-width: 1px;}
+}
+
+@keyframes img_open {
+	0% {transform: rotate(360deg);}
+	100% {transform: rotate(0deg);}
+}
+
+@keyframes img_close {
+	0% {transform: rotate(0deg);}
+	100% {transform: rotate(360deg);}
+}
+
 #overlay {
 	position: fixed;
 	border-radius: 25px;
@@ -26,7 +46,7 @@
 
 #overlay_button {
 	position: fixed;
-	background: white;
+	background-color: white;
 	width: 50px;
 	height: 50px;
 	top: 88px;

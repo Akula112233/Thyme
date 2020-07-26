@@ -25,11 +25,17 @@ document.getElementById("overlay_button").onclick = function() {overlay_open = o
 
 function overlay_click(overlay_open) {
 	overlay = document.getElementById("overlay");
+	overlay_button = document.getElementById("overlay_button");
+	img = overlay_button.getElementsByTagName("img")[0];
 	
 	if (!overlay_open) {
 		overlay.style = "display:block;animation-name: overlay_open; animation-duration: 0.35s; animation-fill-mode: forwards;";
+		overlay_button.style = "animation-name: overlay_button_open; animation-duration: 0.35s; animation-fill-mode: forwards;";
+		img.style = "animation-name: img_open; animation-timing-function: ease-out; animation-duration: 0.35s; animation-fill-mode: forwards;";
 	} else {
 		overlay.style = "display:block;animation-name: overlay_close; animation-duration: 0.35s; animation-fill-mode: forwards;";
+		overlay_button.style = "animation-name: overlay_button_close; animation-duration: 0.35s; animation-fill-mode: forwards;";
+		img.style = "animation-name: img_close; animation-timing-function: ease-out; animation-duration: 0.35s; animation-fill-mode: forwards;";
 	}
 	
 	return !overlay_open;
