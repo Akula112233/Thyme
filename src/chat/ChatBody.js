@@ -3,9 +3,10 @@ import './chat.css';
 import ChatItem from './ChatItem'
 import socketIOClient from 'socket.io-client'
 import uniqid from 'uniqid'
+import db from '../firebase/firebase'
 
 
-const ENDPOINT = 'localhost:8000/'
+const ENDPOINT = 'https://ec2-52-91-127-119.compute-1.amazonaws.com:8000/'
 
 class ChatBody extends React.Component {
     constructor(props) {
@@ -18,6 +19,7 @@ class ChatBody extends React.Component {
     }
 
     componentDidMount() {
+
         const socket = socketIOClient(ENDPOINT)
         socket.on('chat message', (msg) => {
             if (this.state.prevAuthor == msg.author) {

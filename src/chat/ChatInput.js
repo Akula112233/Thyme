@@ -3,7 +3,7 @@ import './chat.css'
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward'
 
 import socketIOClient from 'socket.io-client'
-const ENDPOINT = 'localhost:8000/'
+const ENDPOINT = 'https://ec2-52-91-127-119.compute-1.amazonaws.com:8000/'
 
 class ChatInput extends React.Component {
     constructor(props) {
