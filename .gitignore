@@ -107,7 +107,6 @@ dist
 .pnp.js
 
 # production
-/build
 
 # misc
 .DS_Store
