@@ -14,7 +14,7 @@ const port = process.env.PORT || 8000
 const app = express()
 app.use(index)
 
-const server = http.createServer(options, app)
+const server = https.createServer(options, app)
 
 const io = socketIo(server)
 
