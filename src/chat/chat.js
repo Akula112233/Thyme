@@ -3,14 +3,15 @@ import './chat.css';
 import ChatBody from './ChatBody'
 import ChatInput from './ChatInput'
 import Courses from './courses'
-
+import uniqid from 'uniqid'
 
 function Chat() {
+    let authorInstance = uniqid()
     return (
         <div id="chat-container">
             <Courses></Courses>
-            <ChatBody></ChatBody>
-            <ChatInput></ChatInput>
+            <ChatBody author={authorInstance}></ChatBody>
+            <ChatInput author={authorInstance}></ChatInput>
         </div>
     )
 }
